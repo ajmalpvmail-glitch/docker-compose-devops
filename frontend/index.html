@@ -1,0 +1,27 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker Compose Project</title>
+</head>
+<body>
+    <h1>Welcome to Docker Compose!</h1>
+    <p>Frontend Nginx container is working.</p>
+
+    <h2>Backend Response:</h2>
+    <p id="result">Loading...</p>
+
+    <script>
+        fetch("/api/")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("result").innerText = data;
+            })
+            .catch(error => {
+                document.getElementById("result").innerText =
+                    "Backend connection failed";
+            });
+    </script>
+</body>
+</html>
